@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Document</title>
+    <style>
+      .container {
+        padding: 50px;
+      }
+      .main{
+          margin: auto;
+          padding-top: 30px;
+          width: 50%;
+          /* border: solid rgb(46, 33, 165); */
+          border-radius: 10px;
+          border-width: 10px;
+          text-align: center;
+          font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+      button{
+          margin: 2px;
+          width: 150px;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <button onclick="turnOn()" type="button" class="btn btn-success">Turn ON</button>
+
+      <button onclick="turnOff()" type="button" class="btn btn-danger">Turn OFF</button>
+
+      <button onclick="toggleBulb()" id="onOffButton" type="button" class="btn btn-primary">ON</button>
+
+      <div class="container">
+        <img id="bulb" src="offbulb.jpg" height="450px" width="250px" />
+      </div>
+      <h6> Created by- Narender Panwar</h6>
+    </div>
+    <script>
+      //turn on function
+      const turnOn = () => {
+        let imgOb = document.getElementById("bulb");
+        imgOb.setAttribute("src", "onbulb.jpg");
+      };
+      //turn off function
+      const turnOff = () => {
+        let imgOb = document.getElementById("bulb");
+        imgOb.setAttribute("src", "offbulb.jpg");
+      };
+      //toggling
+      const toggleBulb =() =>{
+          let imgOb= document.getElementById("bulb");
+          let srcValue= imgOb.getAttribute("src");
+
+          let buttonOb=document.getElementById("onOffButton");
+          let buttonText= buttonOb.innerHTML;
+
+          if(srcValue=="offbulb.jpg")
+          {
+              turnOn();
+              buttonOb.innerHTML="OFF";
+          }
+          else
+          {
+              turnOff();
+              buttonOb.innerHTML="ON";
+          }
+      }
+    </script>
+  </body>
+</html>
